@@ -66,7 +66,7 @@ class RssTwitBot extends BaseTwitBot {
 		} else if ( 1 < sizeof($itemsToPost) ) {
 			$num = sizeof($itemsToPost);
 			$link = $feed->channel->link;
-            $toPost = "$num new items posted to $link";
+            $toPost = "$num new items posted to $link since the last time I tweeted.";
 		}
 
         if ($toPost) {
