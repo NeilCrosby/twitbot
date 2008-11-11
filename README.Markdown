@@ -8,6 +8,8 @@ TwitBot is a library intended to allow easy creation of Bots using the Twitter w
 
 The simplest type of bot.  This type simply watches a given RSS feed and outputs new feed entries as a new tweet by a given username.
 
+This bot will tweet at most once per 15 minute interval.  If multiple items have been added to the watched RSS feed since the last tweet then the bot will not tweet each item, but will instead tweet a single message along the lines of "$num new items posted to $link since the last time I tweeted".
+
 ### Echo Bot
 
 Accepts direct messages from people who it follows and retweets them.  This allows the creation of "Twitter Channels".
