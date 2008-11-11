@@ -54,7 +54,7 @@ class RssTwitBot extends BaseTwitBot {
             $urlLength = mb_strlen('http://tinyurl.com/6dvl5n'); // a short url created by twitter - TODO switch to bit.ly (it's shorter)
             $shortDescAllowedLength = 140 - $urlLength - $titleLength - 3;
             
-            $shortDesc = html_entity_decode(strip_tags($item->description));
+            $shortDesc = html_entity_decode(strip_tags($item->description), ENT_COMPAT);
             
             if ( mb_strlen($shortDesc) > $shortDescAllowedLength ) {
                 $shortDesc = mb_substr($shortDesc, 0, $shortDescAllowedLength - 3).'...';
