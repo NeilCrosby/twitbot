@@ -42,8 +42,6 @@ class RssTwitBot extends BaseTwitBot {
                 continue;
             }
 
-            $this->aOptions['last_data_time'] = $itemTime;
-
             //echo "<p>{$item->title}: {$item->link}</p>";
             array_push($itemsToPost, $item);
         }
@@ -70,6 +68,7 @@ class RssTwitBot extends BaseTwitBot {
 		}
 
         if ($toPost) {
+            $this->aOptions['last_data_time'] = $now;
 			$bot->status->update($toPost);
 		}
     }
