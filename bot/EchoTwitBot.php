@@ -31,10 +31,29 @@ class EchoTwitBot extends BaseTwitBot {
         // We do this because we want messages to be echoed back out to 
         // Twitter in the same order as they were received.
         $messages = array_reverse( $messages );
+        
+        $badPhrases = array(
+            'Thanks for following us',
+            'Thank you for following me',
+            'danke, dass Du meinen Tweets folgst',
+            'myexquisitefoods',
+        );
 
         foreach( $messages as $message ) {
           $sender = $message->sender->screen_name;
           $status = trim( $message->text );
+          
+          $isBad = false;
+          foreach ( $badPhrases as $phrase ) {
+              if ( mb_stristr($status, $phrase) ) {
+                  $isBad = true;
+                  break;
+              }
+          }
+          if ($isBad) {
+              continue;
+          }
+          
           $this->aOptions['last_data_time'] = strtotime($message->created_at);
 
 //          $output = ( isset($this->aOptions['sender_is_private']) && 1 == $this->aOptions['sender_is_private'] )
