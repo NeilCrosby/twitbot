@@ -34,7 +34,7 @@ class EchoTwitBot extends BaseTwitBot {
         
         $badPhrases = array(
             'Thanks for following',
-            'Thank you for following me',
+            'Thank you for following',
             'danke, dass Du meinen Tweets folgst',
             'myexquisitefoods',
         );
