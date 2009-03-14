@@ -77,7 +77,7 @@ class SQL {
       Log::logSQL( SQL::getCallingFunction(), $endTime - $startTime, $sql );
     }
    
-    if ( $logExists && !$result || mysql_error($conn) ) {
+    if ( $logExists && (!$result || mysql_error($conn)) ) {
       Log::error("SQL performed: $sql\n\nError: ".mysql_error($conn));
       return null;
     }
